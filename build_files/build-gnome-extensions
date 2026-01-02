@@ -35,6 +35,9 @@ unzip -o /usr/share/gnome-shell/extensions/blur-my-shell@aunetx/build/blur-my-sh
 glib-compile-schemas /usr/share/gnome-shell/extensions/blur-my-shell@aunetx/schemas
 rm -rf /usr/share/gnome-shell/extensions/blur-my-shell@aunetx/build
 
+#Dash To Dock
+dnf5 install -y gnome-shell-extension-dash-to-panel
+
 # Cleanup
 dnf5 -y remove glib2-devel
 rm -rf /usr/share/gnome-shell/extensions/tmp
