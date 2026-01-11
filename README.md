@@ -1,7 +1,3 @@
-<p align="center">
-  <a href="https://bazzite.gg/"><img src="/repo_content/Bazzite_Tagline.svg?raw=true" alt="Bazzite"/></a>
-</p>
-
 **RNR Linux, Work in progress. Updates when available For now refer to Bazzite and Universal Blue docs for reference documentation will be updated once more changes have been made, currently this is parity with Bazzite**
 **This Project is meant to be a more Windows11ish-Desktoplike default using the existing Gnome-Setup, but integrating Arc Menu and Dash To Panel. Other more general purpose use apps beyond gaming, so this will be a larger image as a result.**
 **Project goal is to incorporate some of the best of other Linux distros as well, potentially (if viable) the CachyOS Kernels and/or optimized kernels as alternative variants (while keeping a seperate images for each) while keeping the stock Bazzite Kernel as well (as it is also excellent)**
