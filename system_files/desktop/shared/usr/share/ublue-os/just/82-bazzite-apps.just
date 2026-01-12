@@ -194,7 +194,7 @@ install-emudeck:
 
 # Install OpenRGB (https://openrgb.org/)
 [group("hardware")]
-install-openrgb: (_install_appimage_file "https://openrgb.org/releases/release_0.9/OpenRGB_0.9_x86_64_b5f46e3.AppImage")
+install-openrgb: (_install_appimage_file "https://codeberg.org/OpenRGB/OpenRGB/releases/download/release_candidate_1.0rc2/OpenRGB_1.0rc2_x86_64_0fca93e.AppImage")
 
 # Install Boxtron, a Steam Play compatibility tool to run DOS games using native Linux DOSBox
 [group("gaming")]
@@ -215,13 +215,6 @@ install-resilio-sync: distrobox-check-fedora
     wget https://raw.githubusercontent.com/ublue-os/bazzite/main/post_install_files/resilio_sync/fedora-resilio-sync.service -O ~/.config/systemd/user/fedora-resilio-sync.service && \
     systemctl --user daemon-reload && \
     systemctl enable --user --now fedora-resilio-sync.service
-
-# Install scrcpy, a utility that mirrors Android devices (video and audio) connected via USB or over TCP/IP
-[group("apps")]
-install-scrcpy: distrobox-check-fedora
-    distrobox enter -n fedora -- bash -c 'sudo dnf copr enable -y zeno/scrcpy && \
-      sudo dnf install -y scrcpy && \
-      distrobox-export --app scrcpy'
 
 # Install OpenTabletDriver, an open source, cross-platform, user-mode tablet driver
 [group("hardware")]

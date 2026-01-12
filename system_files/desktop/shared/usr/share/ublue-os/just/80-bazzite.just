@@ -591,6 +591,48 @@ toggle-global-fsr4 ACTION="":
             ;;
     esac
 
+# Toggle global Proton FSR4 upgrade on RDNA3 GPUs; upgrades FSR 3.1+ → FSR 4, only compatible with Proton GE, Proton EM, or similar forks
+[group("gaming")]
+toggle-global-fsr4-rdna3 ACTION="":
+    #!/usr/bin/bash
+    set -euo pipefail
+    source /usr/lib/ujust/ujust.sh
+
+    FILE="$HOME/.config/environment.d/99-proton-fsr4-rdna3.conf"
+
+    CURRENT="Disabled"
+    if [[ -f "$FILE" ]]; then
+        CURRENT="Enabled"
+    fi
+
+    OPTION="{{ ACTION }}"
+    if [[ -z "$OPTION" ]]; then
+        echo -e "${bold}Global FSR4 (RDNA3):${normal} $CURRENT"
+        echo ""
+        echo "Enables Proton's FSR4 upgrade path on RDNA3 GPUs (e.g. RX 7900 XTX)."
+        echo "When enabled, Proton can upgrade games using FSR 3.1+ to FSR 4 (FP8 Emulation)"
+        echo "and automatically fetch the required FSR4 DLL."
+        echo ""
+        echo -e "${bold}Note:${normal} This is only compatible with Proton GE, Proton EM, or similar forks."
+        echo ""
+        OPTION="$(ugum choose "Enable" "Disable" "Exit without saving")"
+    fi
+
+    case "$OPTION" in
+        Enable|enable)
+            mkdir -p "$HOME/.config/environment.d"
+            echo "PROTON_FSR4_RDNA3_UPGRADE=1" > "$FILE"
+            echo -e "${green}${bold}Enabled${normal}: PROTON_FSR4_RDNA3_UPGRADE=1"
+            ;;
+        Disable|disable)
+            rm -f "$FILE"
+            echo -e "${red}${bold}Disabled${normal}: PROTON_FSR4_RDNA3_UPGRADE removed"
+            ;;
+        *)
+            echo "No changes made."
+            ;;
+    esac
+
 # Toggle whether Steam launches with the -steamdeck flag, which causes Big Picture / Game Mode to emulate Steam Deck behavior. Disabling this can prevent games from forcing Steam Deck-specific assets, such as lower-resolution textures.
 [group("gaming")]
 _toggle-steamdeck-alias:

@@ -59,9 +59,10 @@ From previous `{target}` version `{prev}` there have been the following changes.
 | **Firmware** | {pkgrel:atheros-firmware} |
 | **Mesa** | {pkgrel:mesa-filesystem} |
 | **Gamescope** | {pkgrel:gamescope} |
+| **Bazaar** | {pkgrel:bazaar} |
+| **Ptyxis** | {pkgrel:ptyxis} |
 | **Gnome** | {pkgrel:gnome-control-center-filesystem} |
 | **KDE** | {pkgrel:plasma-desktop} |
-| **[HHD](https://github.com/hhd-dev/hhd)** | {pkgrel:hhd} |
 | **Nvidia** | {pkgrel:nvidia-kmod-common} |
 | **Nvidia LTS** | {pkgrel:nvidia-kmod-common-lts} |
 
@@ -83,17 +84,16 @@ BLACKLIST_VERSIONS = [
     "kernel",
     "mesa-filesystem",
     "gamescope",
+    "bazaar",
+    "ptyxis",
     "gnome-control-center-filesystem",
     "plasma-desktop",
     "atheros-firmware",
     "nvidia-kmod-common",
     "nvidia-kmod-common-lts",
-    "hhd-git",
-    "hhd",
 ]
 
 PKG_ALIAS = {
-    "hhd-git": "hhd",
 }
 
 
